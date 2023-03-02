@@ -48,25 +48,34 @@
 </template>
 
 <style>
+  main ol {
+    padding-left: 0;
+  }
+
   img {
     margin-top: 30px;
     max-width: 100%;
   }
+
   ol {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   li {
     list-style-type: none;
   }
+
   @media (max-width: 1180px) {
     body {
       padding-right: 40px;
     }
+
     ol {
       display: grid;
       grid-template-columns: 100%;
     }
+
     li {
       list-style-type: none;
     }

@@ -1,22 +1,22 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
 
 const mutations = {
   addition(state, plus) {
-    state.sum += plus;
+    state.sum += plus
   },
   zero(state) {
-    state.sum = 0;
-  },
-};
+    state.sum = 0
+  }
+}
 
 const state = {
-  sum: 0,
-};
+  sum: 0
+}
 
 const store = createStore({
   mutations,
   state,
-  strict: true,
-});
+  strict: true
+})
 
-export default store;
+export default store

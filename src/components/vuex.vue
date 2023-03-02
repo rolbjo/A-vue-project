@@ -1,9 +1,9 @@
 <script>
-export default {
-  data() {
-    return { plus: "" };
-  },
-};
+  export default {
+    data() {
+      return { plus: '' }
+    }
+  }
 </script>
 
 <template>
@@ -17,7 +17,7 @@ export default {
   <div>{{ $store.state.sum }}</div>
 </template>
 <style>
-#styling {
-  font-weight: bolder;
-}
+  #styling {
+    font-weight: bolder;
+  }
 </style>

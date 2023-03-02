@@ -55,12 +55,14 @@
 
   ol {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   li {
     list-style-type: none;
     padding: 30px;
+    overflow: hidden;
   }
+
   @media (max-width: 1180px) {
     body {
       padding-right: 40px;

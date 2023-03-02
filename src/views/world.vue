@@ -52,7 +52,8 @@
     margin-top: 30px;
     max-width: 100%;
     width: 100%;
-    box-shadow: 50px 0px 50px 5px grey;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+
     border-radius: 30px;
   }
 
@@ -61,9 +62,11 @@
     grid-template-columns: 50% 50%;
     min-width: 1180px;
   }
+
   li {
     list-style-type: none;
   }
+
   @media (max-width: 1180px) {
     ol {
       display: grid;
