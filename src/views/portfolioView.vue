@@ -3,6 +3,7 @@
 
   <ul>
     <li><a href="/html-och-css/">HTML och CSS</a></li>
+    <li><a href="/native-javascript/">Native javascript</a></li>
   </ul>
 </template>
 

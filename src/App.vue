@@ -24,7 +24,7 @@
 <template>
   <div v-if="$route.path !== '/portfolio'">
     <RouterLink id="portfolio" to="/portfolio">My portfolio</RouterLink>
-    <maintitle pageName="Fast news" />
+    <maintitle page-name="Fast news" />
     <div id="fun">
       <p id="boxtitle">Fun box!</p>
       <HelloWorld @custom="logga" />
