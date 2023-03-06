@@ -1,5 +1,5 @@
 <template>
-  <h1>My portfolio</h1>
+  <h1>My Portfolio</h1>
 
   <ul>
     <li><a href="/html-och-css/">HTML och CSS</a></li>
