@@ -3,19 +3,28 @@
 
   export default {
     created() {
+      this.loading = true
+
+      const apikey = '804a9918ac59320a635fef0bfa096ba3'
+      const url = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&country=us&max=10&apikey=${apikey}`
+
       axios
-        .get('https://inshorts.deta.dev/news?category=all')
+        .get(url)
         .then((response) => {
-          this.articles = response.data
+          console.log(response.data)
+          this.articles = response.data.articles
+          this.loading = false
         })
         .catch((error) => {
           console.error(error)
+          this.loading = false
         })
     },
     data() {
       return {
         articles: null,
-        message: null
+        message: null,
+        loading: false
       }
     }
   }
@@ -24,27 +33,32 @@
 <template>
   <h1>Home</h1>
 
-  <ol v-if="articles">
-    <li :key="article.id" v-for="article in articles.data.slice(0, 20)">
-      <p>
-        <span
-          style="
-            font-size: 22px;
-            font-weight: normal;
-            font-family: 'Times New Roman', Times, serif;
-          "
-        >
-          {{ article.title }}</span
-        >
-      </p>
-      <p id="maintext">{{ article.content }}</p>
-      <img v-if="article.imageUrl" :src="article.imageUrl" />
-      <p v-if="!article.imageUrl">Image not available</p>
-      <p>{{ article.date }}</p>
-      <a :href="article.readMoreUrl">{{ article.readMoreUrl }}</a>
-      <p v-if="!article.readMoreUrl">No more info</p>
-    </li>
-  </ol>
+  <div v-if="loading" class="loading-symbol">
+    <img class="loader" src="../../assets/Yin and Yang.gif" alt="loading" />
+  </div>
+  <div v-else>
+    <ol v-if="articles">
+      <li :key="article.uuid" v-for="article in articles">
+        <p>
+          <span
+            style="
+              font-size: 22px;
+              font-weight: normal;
+              font-family: 'Times New Roman', Times, serif;
+            "
+          >
+            {{ article.title }}</span
+          >
+        </p>
+        <p id="maintext">{{ article.description }}</p>
+        <img v-if="article.image" :src="article.image" />
+        <p v-if="!article.image">Image not available</p>
+        <p>{{ article.publishedAt }}</p>
+        <a :href="article.url">{{ article.url }}</a>
+        <p v-if="!article.url">No more info</p>
+      </li>
+    </ol>
+  </div>
 </template>
 
 <style>
@@ -74,5 +88,15 @@
     li {
       list-style-type: none;
     }
+  }
+
+  .loading-symbol {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  .loader {
+    width: 100px;
+    height: 100px;
   }
 </style>

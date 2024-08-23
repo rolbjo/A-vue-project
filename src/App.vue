@@ -3,15 +3,13 @@
   import Password from './components/PasswordCheck.vue'
   import vuex from './components/vuex.vue'
   import maintitle from './components/headLine.vue'
-  import PortfolioView from './views/portfolioView.vue'
 
   export default {
     components: {
       HelloWorld,
       Password,
       vuex,
-      maintitle,
-      PortfolioView
+      maintitle
     },
     methods: {
       logga() {
@@ -22,30 +20,25 @@
 </script>
 
 <template>
-  <div v-if="$route.path !== '/portfolio'">
-    <RouterLink id="portfolio" to="/portfolio">My portfolio</RouterLink>
-    <maintitle page-name="Fast news" />
-    <div id="fun">
-      <p id="boxtitle">Fun box!</p>
-      <HelloWorld @custom="logga" />
-      <Password />
-      <vuex />
-    </div>
-    <nav>
-      <ul>
-        <li><RouterLink to="/">Home</RouterLink></li>
-        <li>
-          <RouterLink to="/world">World news</RouterLink>
-        </li>
-        <li><RouterLink to="/science">Science news </RouterLink></li>
-      </ul>
-    </nav>
-    <main>
-      <RouterView />
-    </main>
-  </div>
-  <div v-else>
-    <PortfolioView />
+  <maintitle page-name="Fast news" />
+
+  <nav>
+    <ul id="navbar">
+      <li><RouterLink to="/">Home</RouterLink></li>
+      <li>
+        <RouterLink to="/world">World news</RouterLink>
+      </li>
+      <li><RouterLink to="/science">Science news </RouterLink></li>
+    </ul>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
+  <div id="fun">
+    <p id="boxtitle">Fun box!</p>
+    <HelloWorld @custom="logga" />
+    <Password />
+    <vuex />
   </div>
 </template>
 
@@ -70,6 +63,7 @@
   }
   nav {
     display: flex;
+    justify-content: center;
   }
   input {
     height: 22px;
@@ -91,5 +85,9 @@
     font-size: large;
     padding-right: 5px;
     text-decoration: underline;
+  }
+  #navbar {
+    display: flex;
+    justify-content: center;
   }
 </style>
