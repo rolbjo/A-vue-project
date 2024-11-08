@@ -32,10 +32,10 @@
   <h1>World news</h1>
 
   <div v-if="loading" class="loading-symbol">
-    <img class="loader" src="../../assets/Yin and Yang.gif" alt="loading" />
+    <img class="loader" src="../../assets/Yin-and-Yang.gif" alt="loading" />
   </div>
   <ol v-if="articles">
-    <li :key="article.id" v-for="article in articles">
+    <li :key="article.url" v-for="article in articles">
       <p>
         <span
           style="

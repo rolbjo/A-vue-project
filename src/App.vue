@@ -5,6 +5,13 @@
   import maintitle from './components/headLine.vue'
 
   export default {
+    data() {
+      return {
+        message: 'Klicka här',
+        biography: 'Making the world...\n\n... a better place!',
+        isAdmin: true
+      }
+    },
     components: {
       HelloWorld,
       Password,
@@ -14,6 +21,9 @@
     methods: {
       logga() {
         console.log('Värdet har ökat!')
+      },
+      onClick() {
+        this.message = 'Du har klickat på knappen!'
       }
     }
   }
@@ -21,7 +31,11 @@
 
 <template>
   <maintitle page-name="Fast news" />
-
+  <input type="checkbox" v-model="isAdmin" />
+  {{ isAdmin }}
+  <textarea v-model="biography" />
+  <div style="white-space: pre">{{ biography }}</div>
+  <input type="button" :value="message" @click="onClick" />
   <nav>
     <ul id="navbar">
       <li><RouterLink to="/">Home</RouterLink></li>
